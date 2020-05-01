@@ -1,7 +1,7 @@
 var mysql = require('mysql2');
 var postgres = require('pg');
 
-var connString = process.argv[3];
+var connString = process.env.CONNSTRING;
 function  columnsFor(row) {
   res = [];
   for (var fieldName in row) {
@@ -58,4 +58,4 @@ server.on('connection', function(conn) {
     //conn.on('end', cliendt.end.bind(client));
   });
 });
-server.listen(process.argv[2]);
+server.listen(3306);
